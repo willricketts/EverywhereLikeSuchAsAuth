@@ -10,6 +10,7 @@ gem 'devise'
 gem 'devise-nobrainer'
 gem 'figaro'
 gem 'eveapi'
+gem 'teamspeak-ruby'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
