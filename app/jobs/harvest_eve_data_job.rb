@@ -1,11 +1,14 @@
-class HarvestEveData < ActiveJob::Base
+class HarvestEveDataJob < ActiveJob::Base
   queue_as :default
 
-  def perform_async(account)
-    @api = EAAL::API.new(account.key_id, account.vcode)
+  def perform(*args)
+    account = JSON.parse(args[0])
+    @api = EAAL::API.new(account['key_id'], account['vcode'])
     @characters = harvest_characters.characters
-    save_characters(account, @characters)
+    @account = Account.find(account['id'])
+    save_characters(@account, @characters)
   end
+
 
   private
 

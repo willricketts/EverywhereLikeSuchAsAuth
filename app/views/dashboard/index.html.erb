@@ -7,11 +7,11 @@
 
 <div id="api_pane">
   <% if current_user.accounts.count > 0%>
-      <h4>My API Keys</h4>
+      <h2>My API Keys</h2>
       <% current_user.accounts.each do |account| %>
           <div class="api_key">
-          <%= account.key_id %>
-          <%= account.vcode %>
+          <p><strong>Key ID: </strong><%= account.key_id %></p>
+          <p><strong>vCode: </strong><%= account.vcode %></p>
           </div>
       <% end %>
       <h6><%= link_to 'Add another?', :new_account %></h6>
