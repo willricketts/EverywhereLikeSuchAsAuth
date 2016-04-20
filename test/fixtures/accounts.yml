@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  key_id: MyString
+  vcode: MyString
+
+two:
+  key_id: MyString
+  vcode: MyString
