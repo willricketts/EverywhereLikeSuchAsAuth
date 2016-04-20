@@ -1,3 +1,21 @@
 <h1>Dashboard</h1>
-<p>Signed in as <%= current_user.email %></p>
-<%= link_to 'Logout', destroy_user_session_path, { method: :delete } %>
+
+<div id="utility_header">
+  <p>Signed in as <%= current_user.email %></p>
+  <%= link_to 'Logout', destroy_user_session_path, { method: :delete } %>
+</div>
+
+<div id="api_pane">
+  <% if current_user.accounts.count > 0%>
+      <h4>My API Keys</h4>
+      <% current_user.accounts.each do |account| %>
+          <div class="api_key">
+          <%= account.key_id %>
+          <%= account.vcode %>
+          </div>
+      <% end %>
+      <h6><%= link_to 'Add another?', :new_account %></h6>
+  <% else %>
+    <small>NO API KEYS. <%= link_to 'Add one now?', new_account_path %></small>
+  <% end %>
+</div>

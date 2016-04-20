@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'
+
+
   devise_for :users
   root to: 'home#index'
+
+  resources :accounts
 
   get 'dashboard' => 'dashboard#index'
   # The priority is based upon order of creation: first created -> highest priority.

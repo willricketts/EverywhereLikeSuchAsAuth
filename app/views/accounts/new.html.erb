@@ -1,0 +1,7 @@
+<h1>Add API Key</h1>
+
+<%= form_for @account, url: { action: 'create' }, html: { class: 'add_api_form' } do |f| %>
+  <%= f.text_field :key_id %>
+  <%= f.text_field :vcode %>
+  <%= f.submit %>
+<% end %>

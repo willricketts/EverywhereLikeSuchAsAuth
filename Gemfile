@@ -7,6 +7,8 @@ gem 'nobrainer'
 gem 'devise'
 gem 'devise-nobrainer'
 gem 'figaro'
+gem 'sinatra'
+gem 'puma'
 
 # EVE API Gem
 gem 'eaal'
