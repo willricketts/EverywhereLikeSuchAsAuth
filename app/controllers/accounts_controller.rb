@@ -12,6 +12,7 @@ class AccountsController < ApplicationController
     @account.user = current_user
 
     if @account.save
+      HarvestEveData.new.perform_async(@account)
       redirect_to :dashboard
     else
       redirect_to :new_account

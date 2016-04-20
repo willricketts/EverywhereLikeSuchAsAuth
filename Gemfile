@@ -9,6 +9,7 @@ gem 'devise-nobrainer'
 gem 'figaro'
 gem 'sinatra'
 gem 'puma'
+gem 'sidekiq-cron'
 
 # EVE API Gem
 gem 'eaal'
