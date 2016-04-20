@@ -3,7 +3,7 @@ class HarvestEveDataJob < ActiveJob::Base
 
   def perform(*args)
     account = JSON.parse(args[0])
-    @api = EAAL::API.new(account['key_id'], account['vcode'])
+    @api = EveApi::Api.new(account['key_id'], account['vcode'])
     @characters = harvest_characters.characters
     @account = Account.find(account['id'])
     save_characters(@account, @characters)
@@ -14,7 +14,7 @@ class HarvestEveDataJob < ActiveJob::Base
 
   ## Character Data
   def harvest_characters
-    @api.Characters
+    @api.account.Characters
   end
 
   def save_characters(account, characters)

@@ -12,7 +12,9 @@ gem 'puma'
 gem 'sidekiq-cron'
 
 # EVE API Gem
-gem 'eaal'
+#gem 'eaal'
+#gem 'eveapi'
+gem 'eve_api'
 
 gem 'teamspeak-ruby'
 gem 'sidekiq'
