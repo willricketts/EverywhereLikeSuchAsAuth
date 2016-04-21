@@ -21,13 +21,14 @@ class HarvestEveCharacters < ActiveJob::Base
     characters.map do |char|
 
       Character.new(name: char.name,
-                    alliance_id: char.allianceID.to_s,
-                    alliance_name: char.allianceName,
-                    character_id: char.characterID.to_s,
-                    corporation_id: char.corporationID.to_s,
-                    corporation_name: char.corporationName,
-                    faction_id: char.factionID.to_s,
-                    user: account.user
+                                    alliance_id: char.allianceID.to_s,
+                                    alliance_name: char.allianceName,
+                                    character_id: char.characterID.to_s,
+                                    corporation_id: char.corporationID.to_s,
+                                    corporation_name: char.corporationName,
+                                    faction_id: char.factionID.to_s,
+                                    user: account.user,
+                                    account: account
       ).save
     end
   end
