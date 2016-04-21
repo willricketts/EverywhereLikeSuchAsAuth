@@ -2,7 +2,7 @@ NoBrainer.configure do |config|
   # app_name is the name of your application in lowercase.
   # When using Rails, the application name is automatically inferred.
   # config.app_name = config.default_app_name
-
+  #config.app_name = config.default_app_name
   # environment defaults to Rails.env for Rails apps or to the environment
   # variables RUBY_ENV, RAILS_ENV, RACK_ENV, or :production.
   # config.environment = config.default_environment
@@ -16,7 +16,7 @@ NoBrainer.configure do |config|
   # * RETHINKDB_URL, RDB_URL
   # * RETHINKDB_HOST, RETHINKDB_PORT, RETHINKDB_DB, RETHINKDB_AUTH
   # * RDB_HOST, RDB_PORT, RDB_DB, RDB_AUTH
-  # config.rethinkdb_urls = [config.default_rethinkdb_url]
+  #config.rethinkdb_urls = [ENV['RETHINKDB_URL']]
 
   # ssl_options may be set to {:ca_certs => '/path/to/ca.crt'} to establish
   # an SSL connection to the RethinkDB servers.
