@@ -9,6 +9,9 @@ class AccountsController < ApplicationController
 
   def create
     @account = Account.new(account_params)
+    unless valid_key?(@account)
+      #redirect
+    end
     @account.user = current_user
 
     if @account.save
@@ -39,5 +42,14 @@ class AccountsController < ApplicationController
   private
   def account_params
     params.require(:account).permit(:key_id, :vcode)
+  end
+
+  def valid_key?(account)
+    api = EveApi::Api.new(account.key_id, account.vcode)
+    if api.account.a_p_i_key_info.accessMask == ENV['required_access_mask']
+      return true
+    else
+      return false
+    end
   end
 end

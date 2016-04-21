@@ -30,6 +30,9 @@ class User
   ## Onboarding
   field :onboarded,          :type => Boolean, :default => false
 
+  ## Permissions
+  field :admin,              :type => Boolean, :default => false
+
   ## Confirmable
   # field :confirmation_token,   :type => String
   # field :confirmed_at,         :type => Time
