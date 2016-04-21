@@ -23,10 +23,10 @@ class HarvestEveDataJob < ActiveJob::Base
       Character.new(name: char.name,
                     alliance_id: char.allianceID.to_s,
                     alliance_name: char.allianceName,
-                    character_id: char.characterID,
+                    character_id: char.characterID.to_s,
                     corporation_id: char.corporationID.to_s,
                     corporation_name: char.corporationName,
-                    faction_id: char.factionID,
+                    faction_id: char.factionID.to_s,
                     user: account.user
       ).save
     end
