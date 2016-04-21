@@ -45,4 +45,11 @@ class User
   # field :locked_at,       :type => Time
   include NoBrainer::Document::Timestamps
 
+  def risk_level
+    sum = 0
+    self.characters.each do |char|
+      sum += char.risk_level
+    end
+    sum
+  end
 end
