@@ -19,13 +19,14 @@ class HarvestEveDataJob < ActiveJob::Base
 
   def save_characters(account, characters)
     characters.map do |char|
+
       Character.new(name: char.name,
-                    alliance_id: char.allianceId,
+                    alliance_id: char.allianceID.to_s,
                     alliance_name: char.allianceName,
-                    character_id: char.characterId,
-                    corporation_id: char.corporationId,
+                    character_id: char.characterID,
+                    corporation_id: char.corporationID.to_s,
                     corporation_name: char.corporationName,
-                    faction_id: char.factionId,
+                    faction_id: char.factionID,
                     user: account.user
       ).save
     end
