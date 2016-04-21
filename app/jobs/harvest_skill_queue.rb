@@ -11,7 +11,6 @@ class HarvestSkillQueue < ActiveJob::Base
   end
 
   def harvest_skill_queue(character_id)
-    puts '################################## ' + character_id
     @api.char.skill_queue(characterID: character_id)
   end
 end
