@@ -17,15 +17,13 @@ class Character
   field :skill_queue, :type => Text
   field :skill_in_training, :type => Text
   field :contracts, :type => Text
-  field :risk_level, :type => Integer
+  field :risk_level, :type => Integer, :default => 0
 
   def alts
     alts = self.account.characters.to_a
     payload = []
     alts.each do |char|
-      if char.id != self.id
-        payload.push char
-      end
+      payload.push char unless char.id == self.id
     end
     payload
   end
