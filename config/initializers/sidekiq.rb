@@ -1,5 +1,9 @@
 Sidekiq.configure_server do |config|
-  config.redis = { url: ENV['REDIS_URL'], namespace: ENV['REDIS_DB'], password: ENV['REDIS_PASS'] }
+  config.redis = {
+      url: ENV['REDIS_URL'] || localhost,
+      namespace: ENV['REDIS_DB'] || elsa_development,
+      password: ENV['REDIS_PASS'] || nil
+  }
 
   database_url = ENV['DATABASE_URL']
   if database_url

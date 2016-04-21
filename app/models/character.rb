@@ -17,6 +17,18 @@ class Character
   field :skill_queue, :type => Text
   field :skill_in_training, :type => Text
   field :contracts, :type => Text
+  field :risk_level, :type => Integer
+
+  def alts
+    alts = self.account.characters.to_a
+    payload = []
+    alts.each do |char|
+      if char.id != self.id
+        payload.push char
+      end
+    end
+    payload
+  end
 
   def harvest_skill_queue
     HarvestSkillQueue.perform_later(self.to_json)
