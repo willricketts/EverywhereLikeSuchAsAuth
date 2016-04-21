@@ -1,4 +1,4 @@
-class HarvestEveDataJob < ActiveJob::Base
+class HarvestEveCharacters < ActiveJob::Base
   queue_as :default
 
   def perform(*args)

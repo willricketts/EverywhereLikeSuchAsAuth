@@ -12,7 +12,7 @@ class AccountsController < ApplicationController
     @account.user = current_user
 
     if @account.save
-      HarvestEveDataJob.perform_later(@account.to_json)
+      HarvestEveCharacters.perform_later(@account.to_json)
       redirect_to :dashboard
     else
       redirect_to :new_account
