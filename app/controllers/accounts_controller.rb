@@ -9,10 +9,10 @@ class AccountsController < ApplicationController
 
   def create
     @account = Account.new(account_params)
-    unless valid_key?(@account)
-      flash[:notice] = "Invalid access mask. Your API key must use access mask #{ENV['required_access_mask']}"
-      redirect_to :new_account_path
-    end
+    #unless valid_key?(@account)
+    #  flash[:notice] = "Invalid access mask. Your API key must use access mask #{ENV['required_access_mask']}"
+    #  redirect_to :new_account_path
+    #end
     @account.user = current_user
 
     if @account.save

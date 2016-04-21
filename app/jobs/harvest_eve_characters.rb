@@ -20,16 +20,19 @@ class HarvestEveCharacters < ActiveJob::Base
   def save_characters(account, characters)
     characters.map do |char|
 
-      Character.new(name: char.name,
-                                    alliance_id: char.allianceID.to_s,
-                                    alliance_name: char.allianceName,
-                                    character_id: char.characterID.to_s,
-                                    corporation_id: char.corporationID.to_s,
-                                    corporation_name: char.corporationName,
-                                    faction_id: char.factionID.to_s,
-                                    user: account.user,
-                                    account: account
-      ).save
+      Character.where(character_id: char.characterID.to_s).first_or_create! do
+        {
+            name: char.name,
+            alliance_id: char.allianceID.to_s,
+            alliance_name: char.allianceName,
+            character_id: char.characterID.to_s,
+            corporation_id: char.corporationID.to_s,
+            corporation_name: char.corporationName,
+            faction_id: char.factionID.to_s,
+            user: account.user,
+            account: account
+        }
+      end
     end
   end
 end
