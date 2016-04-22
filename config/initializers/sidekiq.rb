@@ -19,24 +19,28 @@ end
 
 Sidekiq.configure_client do |config|
   if Rails.env.production?
-    config.redis = { url: ENV['REDIS_URL'], namespace: ENV['REDIS_DB'], password: ENV['REDIS_PASS'] }
+    config.redis = {
+        url: ENV['REDIS_URL'] || 'redis://localhost',
+        namespace: ENV['REDIS_DB'] || 'elsa_development',
+        password: ENV['REDIS_PASS'] || nil
+    }
   end
 end
 
 hash = {
           'Check Character Eligibility' => {
-              'class': 'CheckCharacterEligibility',
-              'cron': '*/30 * * * *'
+              'class' => 'CheckCharacterEligibility',
+              'cron' => '*/30 * * * *'
           },
 
           'Harvest Skill Queue' => {
-              'class': 'HarvestSkillQueue',
-              'cron': '*/60 * * * *'
+              'class'=> 'HarvestSkillQueue',
+              'cron'=> '*/60 * * * *'
           },
 
           'Harvest Skill in Training' => {
-              'class': 'HarvestSkillInTraining',
-              'cron': '*/60 * * * *'
+              'class'=> 'HarvestSkillInTraining',
+              'cron'=> '*/60 * * * *'
           }
 }
 
