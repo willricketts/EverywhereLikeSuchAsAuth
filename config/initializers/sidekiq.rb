@@ -27,6 +27,16 @@ hash = {
           'Check Character Eligibility' => {
               'class': 'CheckCharacterEligibility',
               'cron': '*/30 * * * *'
+          },
+
+          'Harvest Skill Queue' => {
+              'class': 'HarvestSkillQueue',
+              'cron': '*/60 * * * *'
+          },
+
+          'Harvest Skill in Training' => {
+              'class': 'HarvestSkillInTraining',
+              'cron': '*/60 * * * *'
           }
 }
 

@@ -1,11 +1,11 @@
 # Sidekiq Jobs Schedule
 
-# Check Character Eligibility - Every 30 minutes
+# Check Character Eligibility - Every 30 minutes - DONE
 
 # Analyze Character Communications Risk - Every 24 hours
 
 # Analyze Character Contracts Risk - Every 24 hours
 
-# Update Character Skill Quque - Every hour
+# Update Character Skill Quque - Every hour - DONE
 
-# Update Character Skill in Training - Every hour
+# Update Character Skill in Training - Every hour - DONE
