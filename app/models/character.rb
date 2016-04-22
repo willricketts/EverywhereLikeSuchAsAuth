@@ -18,6 +18,7 @@ class Character
   field :skill_in_training, :type => Text
   field :contracts, :type => Text
   field :risk_level, :type => Integer, :default => 0
+  field :flagged, :type => Boolean
 
   def alts
     alts = self.account.characters.to_a
