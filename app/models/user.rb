@@ -1,8 +1,6 @@
 class User
   include NoBrainer::Document
 
-  ALLOWED_ALLIANCE = ENV['ALLOWED_ALLIANCE']
-
   has_many :accounts
   has_many :characters
 
@@ -34,7 +32,6 @@ class User
 
   ## Permissions
   field :admin,              :type => Boolean, :default => false
-  field :eligible,           :type => Boolean, :default => false
 
   ## Confirmable
   # field :confirmation_token,   :type => String
@@ -54,12 +51,5 @@ class User
       sum += char.risk_level
     end
     sum
-  end
-
-  def eligible?
-    result = self.characters.map { |char| char.alliance_id == ALLOWED_ALLIANCE }
-    unless result.include? true
-      self.update_attributes(eligible: false)
-    end
   end
 end
