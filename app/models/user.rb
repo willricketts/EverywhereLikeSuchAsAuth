@@ -32,6 +32,7 @@ class User
 
   ## Permissions
   field :admin,              :type => Boolean, :default => false
+  field :eligible,           :type => Boolean, :default => false
 
   ## Confirmable
   # field :confirmation_token,   :type => String
