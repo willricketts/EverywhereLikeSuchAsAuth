@@ -18,10 +18,10 @@ class CheckCharacterEligibility < ActiveJob::Base
         unless char.allianceID == ALLOWED_ALLIANCE
           target.update_attributes(flagged: true)
         end
+      end
 
-        unless account.eligible?
-          account.user.update_attributes(eligible: false)
-        end
+      unless account.eligible?
+        account.user.update_attributes(eligible: false)
       end
     end
   end
